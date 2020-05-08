@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   res.render('logIn');
 });
 
-router.post('/lg', function(req, res, next) {
+router.post('/log', function(req, res, next) {
   console.log("login");
   user ={
     username: req.body.username,
