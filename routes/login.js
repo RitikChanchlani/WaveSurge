@@ -16,6 +16,7 @@ router.post('/log', function(req, res, next) {
   user ={
     username: req.body.username,
     password: req.body.password,
+    orginization:0
   };
   mongo.connect(url,{ useUnifiedTopology: true }, function(err, db) {
     assert.equal(null, err);
@@ -25,6 +26,7 @@ router.post('/log', function(req, res, next) {
         if (user.username == result[i].username){
           if (user.password == result[i].password){
             user = result[i];
+            console.log("This is the result:");
             console.log(result[i]);
           }
           break;
@@ -34,6 +36,7 @@ router.post('/log', function(req, res, next) {
   })
   console.log(user);
   console.log("DONE!!!!");
+
 })
 
 module.exports = router;
