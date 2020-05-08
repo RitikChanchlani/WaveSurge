@@ -13,26 +13,39 @@ router.get('/', function(req, res, next) {
 
 router.post('/newUser',function(req,res,next){
 
+  var repass = req.body.repassword;
+
   var item ={
     username: req.body.username,
     password: req.body.password,
-    reenter: req.body.repassword,
     orginization: req.body.orginizationCode
   };
 
-  mongo.connect(url,{ useUnifiedTopology: true }, function(err, db) {
-      assert.equal(null, err);
-      var dbo = db.db("user-data");
-      dbo.collection('user-data').insertOne(item, function(err, result) { 
+  if (repass == item.password){
+    mongo.connect(url,{ useUnifiedTopology: true }, function(err, db) {
+        assert.equal(null, err);
+        var dbo = db.db("user-data");
+        dbo.collection('user-data').insertOne(item, function(err, result) { 
+          // if (err) throw err;
+          console.log('Item inserted');
+      });
+      dbo.collection("user-data").find({}).toArray(function(err, result) {
         // if (err) throw err;
-        console.log('Item inserted');
-    });
-    dbo.collection("user-data").find({}).toArray(function(err, result) {
-      // if (err) throw err;
-      console.log(result);
-    });
-  })
-  res.redirect('/login');
+        // console.log(result);
+      });
+    })
+    res.redirect('/login');
+    console.log("hi");
+  }else{
+    console.log('Incorrect Password');
+    res.render('failedLogIn');
+  }
 });
+
+router.post('/retry',function(req,res,next){
+  res.render('index');
+})
+
+
 
 module.exports = router;
