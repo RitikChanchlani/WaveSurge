@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/log', function(req, res, next) {
   console.log("login");
-  user ={
+  var user ={
     username: req.body.username,
     password: req.body.password,
     orginization:0
@@ -22,9 +22,12 @@ router.post('/log', function(req, res, next) {
     assert.equal(null, err);
     var dbo = db.db("user-data");
     dbo.collection("user-data").find({}).toArray(function(err, result) {
-      for (var i = 0; i < result.length; i++){
-        if (user.username == result[i].username){
-          if (user.password == result[i].password){
+      for (var i = 0; i < result.length; i++)
+      {
+        if (user.username == result[i].username)
+        {
+          if (user.password == result[i].password)
+          {
             user = result[i];
             console.log("This is the result:");
             console.log(result[i]);
