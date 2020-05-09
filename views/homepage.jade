@@ -1,51 +1,50 @@
 doctype html
 html.
-<html>
-    <head>
-        <title>Wavesurge Homepage</title>
-        <link rel="stylesheet" href = "main.css">
-    </head>
+	<head>
+		<title>Wavesurge Homepage</title>
+		<link rel="stylesheet" href = "main.css">
+	</head>
 
-    <body>
-        <nav>
-            <ul class="navbar">
-                <li><a href="#Homepage">Homepage</a></li>
-                <li><a href="#Organization">Organization</a></li>
-                <li><a href="#Document">Document</a></li>
-                <li><a href="#Grouping">Grouping</a></li>
-                <li><a href="#Scheduling">Scheduling</a></li>
-                <li><a href="#Calendar">Calendar</a></li>
-            </ul>
-        </nav>
+	<body>
+		<nav>
+			<ul class="navbar">
+				<li><a href="#Homepage">Homepage</a></li>
+				<li><a href="#Organization">Organization</a></li>
+				<li><a href="#Document">Document</a></li>
+				<li><a href="#Grouping">Grouping</a></li>
+				<li><a href="#Scheduling">Scheduling</a></li>
+				<li><a href="#Calendar">Calendar</a></li>
+			</ul>
+		</nav>
 
-        <h2 class="Title">
-            Welcome to Wavesurge
-        </h2>
+		<h2 class="Title">
+			Welcome to Wavesurge
+		</h2>
 
-        <p id="homepageParagraph">
-        This website allows you to organize your organization, through document 
-        submissions, group organizations. To use the features of this webpage,
-        you need to sign into an organization.   
-        </p>
-        <div>
-            <button id="button1" onclick="redirectPersonalProfile()"> Personal Profile  </button>
-            <button id="button2" onclick="redirectCreateOrganization()">Create Organization</button>
-            <button id="button3" onclick="redirectTutorial()">     Tutorial      </button>
-        </div>
+		<p id="homepageParagraph">
+		This website allows you to organize your organization, through document 
+		submissions, group organizations. To use the features of this webpage,
+		you need to sign into an organization.   
+		</p>
+		<div>
+			<button id="button1" onclick="redirectPersonalProfile()"> Personal Profile  </button>
+			<button id="button2" onclick="redirectCreateOrganization()">Create Organization</button>
+			<button id="button3" onclick="redirectTutorial()">     Tutorial      </button>
+		</div>
 
-        <script>
-            function redirectCreateOrganization()
-            {
-                window.location.href = "createOrganization.html";
-            }
-            function redirectPersonalProfile()
-            {
-                window.location.href = "personalProfile.html";
-            }
-            function redirectTutorial()
-            {
-                window.location.href = "tutorial.html";
-            }
-        </script>
-    </body>
+		<script>
+			function redirectCreateOrganization()
+			{
+				window.location.href = "createOrganization.html";
+			}
+			function redirectPersonalProfile()
+			{
+				window.location.href = "personalProfile.html";
+			}
+			function redirectTutorial()
+			{
+				window.location.href = "tutorial.html";
+			}
+		</script>
+	</body>
 </html>

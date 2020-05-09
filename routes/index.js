@@ -34,7 +34,7 @@ router.post('/newUser',function(req,res,next){
         // console.log(result);
       });
     })
-    res.render('logIn');
+    res.redirect('logIn');
     console.log("hi");
   }else{
     console.log('Incorrect Password');
