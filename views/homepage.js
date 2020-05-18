@@ -1,1 +1,0 @@
-var x = index.js(user)
