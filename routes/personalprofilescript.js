@@ -1,4 +1,5 @@
 // personal profile javascript filevar express = require('express');
+var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
