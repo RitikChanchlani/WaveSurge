@@ -26,25 +26,20 @@ html.
 		submissions, group organizations. To use the features of this webpage,
 		you need to sign into an organization.   
 		</p>
+		
 		<div>
-			<button id="button1" onclick="redirectPersonalProfile()"> Personal Profile  </button>
-			<button id="button2" onclick="redirectCreateOrganization()">Create Organization</button>
-			<button id="button3" onclick="redirectTutorial()">     Tutorial      </button>
+			<form action="home/CreateOrganizatoin" method="post"> 
+			<button id = "button 1" type="submit">CreateOrganization</button>
+			</form>			
+			<form action="home/tutorial" method="post"> 
+			<button id = "button 2" type="submit">Tutorial</button>
+			</form>
+			<form action="home/personalprofile" method="post"> 
+			<button id = "button 3" type="submit"> Personal Profile</button>
+			</form> 
 		</div>
 
-		<script>
-			function redirectCreateOrganization()
-			{
-				window.location.href = "createOrganization.html";
-			}
-			function redirectPersonalProfile()
-			{
-				window.location.href = "personalProfile.html";
-			}
-			function redirectTutorial()
-			{
-				window.location.href = "tutorial.html";
-			}
+		<script src = "home.js">
 		</script>
 	</body>
 </html>
