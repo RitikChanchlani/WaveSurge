@@ -1,12 +1,25 @@
 var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const express = require('express');
+const router = express.Router();
+const mongo = require('mongodb').MongoClient;
+const objectId = require('mongodb').ObjectID;
+const assert = require('assert');
+const bodyParser = require('body-parser');
+const path = require('path');
+const mongoose = require('mongoose');
+const crypto = require('crypto');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var homeRouter = require('./routes/home');
+var groupRouter = require('./routes/group');
+var documentsRouter = require('./routes/documents');
 var personalprofilescriptRouter = require('./routes/personalprofilescript');
 
 var app = express();
@@ -20,11 +33,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/home', homeRouter);
-app.use('/personalprofilescript',personalprofilescriptRouter)
+app.use('/grouping',groupRouter);
+app.use('/documents',documentsRouter);
+app.use('/personalprofilescript',personalprofilescriptRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

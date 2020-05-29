@@ -5,6 +5,7 @@ var objectId = require('mongodb').ObjectID;
 var assert = require('assert');
 var user;
 
+
 const url = 'mongodb://localhost:27017';
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -32,6 +33,7 @@ router.post('/log', function(req, res, next) {
             user = result[i];
             console.log("This is the result:");
             console.log(user);
+            module.exports.user = user; 
             res.redirect('/home');
           }
           break;

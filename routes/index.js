@@ -21,24 +21,35 @@ router.post('/newUser',function(req,res,next){
     orginization: req.body.orginizationCode
   };
 
+  var unique=true;
+
   if (repass == item.password){
     mongo.connect(url,{ useUnifiedTopology: true }, function(err, db) {
-        assert.equal(null, err);
-        var dbo = db.db("user-data");
-        dbo.collection('user-data').insertOne(item, function(err, result) { 
-          // if (err) throw err;
-          console.log('Item inserted');
-      });
+      assert.equal(null, err);
+      var dbo = db.db("user-data");
       dbo.collection("user-data").find({}).toArray(function(err, result) {
-        // if (err) throw err;
-        // console.log(result);
+        if (err) throw err;
+        for (var i = 0; i <result.length; i++){
+          if (result[i].username === item.username){
+            unique = false;
+          }
+          console.log(unique);
+        }
+        console.log("THIS IS "+ unique);
+        if (unique){
+          dbo.collection('user-data').insertOne(item, function(err, result) { 
+            // if (err) throw err;
+            console.log('Item inserted');
+            res.redirect('/login');
+          });
+        }else{
+          res.render('newUsername');
+        }
       });
     })
-    res.redirect('logIn');
-    console.log("hi");
   }else{
     console.log('Incorrect Password');
-    res.render('failedLogIn');
+    res.render('retryMatching');
   }
 });
 
