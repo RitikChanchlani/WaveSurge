@@ -18,7 +18,7 @@ router.post('/newUser',function(req,res,next){
   var item ={
     username: req.body.username,
     password: req.body.password,
-    orginization: req.body.orginizationCode
+    // orginization: req.body.orginizationCode
   };
 
   var unique=true;
@@ -46,7 +46,7 @@ router.post('/newUser',function(req,res,next){
           res.render('newUsername');
         }
       });
-    })
+    });
   }else{
     console.log('Incorrect Password');
     res.render('retryMatching');

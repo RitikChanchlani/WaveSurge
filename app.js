@@ -21,6 +21,7 @@ var homeRouter = require('./routes/home');
 var groupRouter = require('./routes/group');
 var documentsRouter = require('./routes/documents');
 var personalprofilescriptRouter = require('./routes/personalprofilescript');
+var neworginizationRouter = require('./routes/newOrginization');
 
 var app = express();
 
@@ -42,6 +43,7 @@ app.use('/home', homeRouter);
 app.use('/grouping',groupRouter);
 app.use('/documents',documentsRouter);
 app.use('/personalprofilescript',personalprofilescriptRouter);
+app.use('/neworginization', neworginizationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
